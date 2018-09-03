@@ -1,8 +1,16 @@
-## Welcome to GitHub Pages
+## Repositorio de proyecto para Aplicaciones WEB
 
-You can use the [editor on GitHub](https://github.com/JavQuijano/AplicacionesWEB/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+# Introducción 
+Este es el repositorio del equipo 1 en cual se irá subiendo los porcesos que se llevan para hacer una aplicación WEB dependiendo de el plan de trabajo.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+
+# Documentación 
+En la carpeta de documentación se encuentran:
+- Wireframe
+- Calendarización
+- Documento de Requerimento
+- Documento de Pruebas
+- Metrica de contribución
 
 ### Markdown
 
