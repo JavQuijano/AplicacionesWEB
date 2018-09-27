@@ -1,7 +1,7 @@
 ## Repositorio de proyecto para Aplicaciones WEB
 
 # Introducción 
-Este es el repositorio del equipo 1 en cual se irá subiendo los porcesos que se llevan para hacer una aplicación WEB dependiendo de el plan de trabajo.
+Este es el repositorio del equipo 1 en cual se irá subiendo los porcesos que se llevan para hacer una aplicación WEB dependiendo del plan de trabajo.
 
 
 # Documentación 
