@@ -8,9 +8,9 @@
  <body>
   <ul>Salon C6
    <ul>
-    <li>Probabilidad 9:00 - 10:30</li>
+    <li>Probabilidad 10:00 - 10:30</li>
     <li>Algebra Lineal 10:30 - 12:00</li>
    </ul>
 </ul>
  </body>
-</html>
+</html> 

@@ -8,20 +8,23 @@ function validarLogin(){
     $return = false;
     $usuario = $_SESSION['mat'];
     $contra = encriptarContra($_SESSION['contra']);
-    var_dump($contra);
     $listaUsuario = file("./txtDatos/Usuarios");
     $listaSal = file("./txtDatos/Sales");
     foreach ($listaSal as $sal) {
-        $sales=explode("\n", $sal);
+        $variableSal = trim($sal);
+        $sales=explode("\n", $variableSal);
         foreach ($listaUsuario as $user) {
-            $detallesUsuario = explode('|', $user);
+            $variableUsuario = trim($user);
+            $detallesUsuario = explode('|', $variableUsuario);
             if ($detallesUsuario[0] == $usuario && $detallesUsuario[1] == $contra.$sales[0]) {
                 $return = true;
                 $tipo = $detallesUsuario[2];
+                echo"<script type='text/javascript'>alert('$tipo')</script>";
                 validarTipo($tipo);
                 break;
             }
         }
+
     }
     return $return;
 }
@@ -31,11 +34,12 @@ function validarLogin(){
  * Admin o Usuario general, devuelve String como identificador de este usuario.
  */
 function validarTipo($tipo){
+    $variable = trim($tipo);
     $_SESSION['tipo']=null;
-    if(strcmp($tipo, 'a') == 1){
+    if(strcmp($variable, 'a') == 0){
         $_SESSION['tipo']="admin";
         echo $_SESSION['tipo'];
-    }else if (strcmp($tipo, 'u')==1){
+    }else if (strcmp($variable, 'u')== 0){
         $_SESSION['tipo']="usuario";
     }
 }
@@ -46,6 +50,7 @@ function validarTipo($tipo){
  */
 function obtenerVista(){
     $header = null;
+    var_dump($_SESSION['tipo']);
     if($_SESSION['tipo'] == 'admin'){
         $header = "Location: principal.php";
         return $header;

@@ -1,1 +1,27 @@
 wasd|Usuario: wasd agrego Salon: C8 a favoritos|2018-10-27 22:28:23|Alta
+|Usuario:  agrego Salon:  a favoritos|2018-10-28 22:09:48|Alta
+|Usuario:  agrego Salon:  a favoritos|2018-10-28 22:11:28|Alta
+|Usuario:  agrego Salon:  a favoritos|2018-10-28 22:12:02|Alta
+|Usuario:  agrego Salon:  a favoritos|2018-10-28 22:12:51|Alta
+|Usuario realizo cambio en salon: |2018-10-28 22:13:04|Cambio
+admin|Usuario realizo cambio en salon: C6|2018-10-29 15:39:15|Cambio
+wasd|Usuario: wasd agrego Salon: C4 a favoritos|2018-10-29 15:39:48|Alta
+wasd|Usuario: wasd agrego Salon: C9 a favoritos|2018-10-29 15:39:50|Alta
+wasd|Usuario: wasd agrego Salon: C4 a favoritos|2018-10-29 15:39:52|Alta
+wasd|Usuario: wasd agrego Salon: C1 a favoritos|2018-10-29 15:39:54|Alta
+wasd|Usuario: wasd agrego Salon: C9 a favoritos|2018-10-29 15:39:56|Alta
+wasd|Usuario: wasd agrego Salon: H1 a favoritos|2018-10-29 15:40:14|Alta
+wasd|Usuario: wasd agrego Salon: H3 a favoritos|2018-10-29 15:40:17|Alta
+admin|Usuario realizo cambio en salon: D4|2018-10-29 16:46:22|Cambio
+wasd|Usuario: wasd agrego Salon: F3 a favoritos|2018-10-29 16:46:48|Alta
+wasd|Usuario: wasd agrego Salon: F3 a favoritos|2018-10-29 16:46:51|Alta
+wasd|Usuario: wasd agrego Salon: F3 a favoritos|2018-10-29 16:46:54|Alta
+wasd|Usuario: wasd agrego Salon: CC3 a favoritos|2018-10-29 16:46:59|Alta
+admin|Usuario realizo cambio en salon: CC3|2018-10-29 16:47:31|Cambio
+admin|Usuario realizo cambio en salon: C1|2018-10-29 17:19:00|Cambio
+tonybm|Usuario: tonybm agrego Salon: H4 a favoritos|2018-10-29 17:21:50|Alta
+tonybm|Usuario: tonybm agrego Salon: CC1 a favoritos|2018-10-29 17:22:04|Alta
+tonybm|Usuario: tonybm agrego Salon: CC8 a favoritos|2018-10-29 17:22:13|Alta
+tonybm|Usuario: tonybm agrego Salon: CC3 a favoritos|2018-10-29 17:22:19|Alta
+wasd|Usuario: wasd agrego Salon: D1 a favoritos|2018-10-29 23:23:12|Alta
+admin|Usuario realizo cambio en salon: C1|2018-10-29 23:25:11|Cambio

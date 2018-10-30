@@ -11,18 +11,70 @@ if(isset($_POST['submit'])) {
 ?>
 
 <html>
+<head>
+    <title>Mapa FMAT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="./Estilos/login.css"
+          type="text/css"
+    />
+</head>
 <body>
-<form method="post" action="">
-    <label>Matricula: </label>
-    <input type="text" name="matricula" placeholder="A********" required>
-    <br>
-    <label>Contraseña: </label>
-    <input type="password" name="contra" placeholder="Contraseña" required>
-    <br>
-    <label>Confirmar Contraseña: </label>
-    <input type="password" name="confcontra" placeholder="Confirmación Contraseña" required>
-    <br>
-    <input type="submit" name="submit" value="Crear Usuario">
-</form>
+<div class="contenedor">
+    <header>
+        <div class="logo">
+            <a href="principal.php">
+                <img src="./Imagenes/logoFmat.png" class  ="logoPrincipal">
+            </a>
+        </div>
+
+        <nav id = "">
+        </nav>
+    </header>
+
+
+            <div class="grid">
+                <form method="post" action="" class="form login">
+                    <header class="login__header">
+                        <h3 class="login__title">Nuevo Usuario</h3>
+                    </header>
+
+                    <div class="login__body">
+                        <div class="form__field">
+
+                            <input type="text" name="matricula" placeholder="Matricula" required>
+
+                        </div>
+                        <div class="form__field">
+
+                            <input type="password" name="contra" placeholder="Contraseña" required>
+
+                        </div>
+                        <div class="form__field">
+                            <input type="password" name="confcontra" placeholder="Confirmación Contraseña" required>
+                        </div>
+                    </div>
+
+                    <footer class="login__footer">
+                        <input type="submit" name="submit" value="Crear Usuario">
+                    </footer>
+
+                </form>
+            </div>
+    <footer>
+        <section class="links">
+            <a href="principal.php">Inicio</a>
+            <a href="Futuro.php">Proyectos</a>
+            <a href="Equipo.php">Contacto</a>
+        </section>
+
+        <div class="social">
+            <a href="https://www.facebook.com/matematicas.uady.mx/" ><img src="Imagenes/facebook.png" class="logos"></a>
+            <a href="#"><img src= "Imagenes/twitter.png" class="logos"></a>
+        </div>
+    </footer>
+</div>
 </body>
+
 </html>

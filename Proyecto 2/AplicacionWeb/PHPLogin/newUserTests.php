@@ -28,9 +28,11 @@ function verificarRepeticion($matricula){
     $repeticion = false;
     $listaUsuario = file("./txtDatos/Usuarios");
     foreach ($listaUsuario as $user) {
-        $detallesUsuario = explode('|', $user);
-        if ($detallesUsuario[0] == $matricula) {
+        $variableUsuario = trim($user);
+        $detallesUsuario = explode('|', $variableUsuario);
+        if (strcmp($detallesUsuario[0], $matricula)==0) {
             $repeticion = true;
+            break;
         }else{
             $repeticion = false;
         }

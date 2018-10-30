@@ -13,7 +13,7 @@
 	color: white;
 }
 .contenedor {
-	background:#ccc;
+	background:#2c3e50;
 	width:90%;
 	max-width:1220px;
 	margin:auto;
@@ -21,6 +21,18 @@
 	/* Flexbox */
 	display:flex;
 	flex-flow:row wrap;
+}
+
+.container {
+	max-width: 1170px;
+	width: 100%;
+	margin: 100px auto;
+	padding: 0 20px;
+	box-sizing: border-box;
+	-webkit-transform-origin: top center;
+	transform-origin: top center;
+	-webkit-transform: scale(0.8);
+	transform: scale(0.8);
 }
 
 body {
