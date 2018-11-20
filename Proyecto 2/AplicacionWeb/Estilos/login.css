@@ -1,5 +1,4 @@
 /* helpers/align.css */
-
 .align {
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -108,10 +107,13 @@ html {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     height: 100%;
+    overflow: hidden;
 }
 
 body {
-    background-color: #eaeaea;
+
+    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-size: 14px;
     font-size: 0.875rem;

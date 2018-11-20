@@ -1,11 +1,14 @@
 <?php
-    session_start();
+   //Quite el sesion start que estaba aqui y lo puse en el Ifset
     require_once "./PHPLogin/loginTests.php";
     $correcto=false;
     $vista="";
     $_SESSION['mat'] = '';
     $_SESSION['contra'] = '';
+
     if(isset($_POST['submit'])) {
+      //AQUI!
+      session_start();
         $_SESSION['mat'] = $_POST['mat'];
         $_SESSION['contra'] = $_POST['contra'];
         $correcto = validarLogin();
@@ -29,17 +32,20 @@
           type="text/css"
     />
 </head>
-<body>
-<div class="contenedor">
+<body class ="align">
+
+
+  <div id='stars'></div>
+  <div id='stars2'></div>
+  <div id='stars3'></div>
+
+<div class="contenedor" >
     <header>
         <div class="logo">
             <a href="principal.php">
                 <img src="./Imagenes/logoFmat.png" class  ="logoPrincipal">
             </a>
         </div>
-
-        <nav id = "">
-        </nav>
     </header>
 
         <div class="grid">
@@ -85,14 +91,6 @@
             <a href="#"><img src= "Imagenes/twitter.png" class="logos"></a>
         </div>
     </footer>
-
-</div>
-</body>
-
-
-<body class="align">
-
-
 
 </div>
 

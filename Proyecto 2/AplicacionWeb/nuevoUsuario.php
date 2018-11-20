@@ -20,7 +20,7 @@ if(isset($_POST['submit'])) {
           type="text/css"
     />
 </head>
-<body>
+<body class ="align">
 <div class="contenedor">
     <header>
         <div class="logo">
@@ -28,9 +28,6 @@ if(isset($_POST['submit'])) {
                 <img src="./Imagenes/logoFmat.png" class  ="logoPrincipal">
             </a>
         </div>
-
-        <nav id = "">
-        </nav>
     </header>
 
 
