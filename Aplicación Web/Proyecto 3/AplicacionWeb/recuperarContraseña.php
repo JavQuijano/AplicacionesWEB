@@ -30,8 +30,6 @@
                 <div class="login__body">
 
                     <div class="form__field">
-                        <input type="text" name="mat" placeholder="Matricula" required>
-                        <br><br/>
                         <label>Aqui va varuable php de la pregunta</label>
                         <br><br/>
                         <input type="text" name="mat" placeholder="Respuesta Secreta ;)" required>

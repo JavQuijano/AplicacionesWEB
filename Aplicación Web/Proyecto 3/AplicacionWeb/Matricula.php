@@ -4,17 +4,14 @@
     $correcto=false;
     $vista="";
     $_SESSION['mat'] = '';
-    $_SESSION['contra'] = '';
 
-    if(isset($_POST['submit'])) {
+    if(isset($_POST['Siguiente'])) {
       //AQUI!
       session_start();
         $_SESSION['mat'] = $_POST['mat'];
-        $_SESSION['contra'] = $_POST['contra'];
-        $correcto = validarLogin();
+        $correcto = validarMatricula();
         if ($correcto == true) {
-            $vista = obtenerVista();
-            header($vista);
+            header("Location:recuperarContraseña.php");
         }else{
             echo "<script type = text/javascript>alert('Usuario no existe.')</script>";
             session_destroy();
@@ -59,7 +56,7 @@
                 </div>
 
                 <footer class="login__footer">
-                    <input type="submit" value="Siguiente" name="submit">
+                    <input type="submit" value="Siguiente" name="Siguiente">
                 </footer>
               </form>
 
