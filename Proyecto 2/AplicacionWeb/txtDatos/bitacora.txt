@@ -25,3 +25,4 @@ tonybm|Usuario: tonybm agrego Salon: CC8 a favoritos|2018-10-29 17:22:13|Alta
 tonybm|Usuario: tonybm agrego Salon: CC3 a favoritos|2018-10-29 17:22:19|Alta
 wasd|Usuario: wasd agrego Salon: D1 a favoritos|2018-10-29 23:23:12|Alta
 admin|Usuario realizo cambio en salon: C1|2018-10-29 23:25:11|Cambio
+admin|Usuario realizo cambio en salon: C1|2018-11-20 20:34:00|Cambio
