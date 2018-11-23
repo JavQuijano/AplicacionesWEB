@@ -1,6 +1,6 @@
 <?php
    //Quite el sesion start que estaba aqui y lo puse en el Ifset
-    require_once "./PHPLogin/loginTests.php";
+    require_once "../PHPLogin/loginTests.php";
     $correcto=false;
     $vista="";
     $_SESSION['mat'] = '';
@@ -24,7 +24,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="./Estilos/login.css"
+          href="Estilos/login.css"
           type="text/css"
     />
 </head>

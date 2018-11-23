@@ -1,7 +1,7 @@
 <?php
 session_start();
 session_destroy();
-require_once "./PHPLogin/newUserTests.php";
+require_once "../PHPLogin/newUserTests.php";
 if(isset($_POST['submit'])) {
     $_SESSION['mat'] = $_POST['matricula'];
     $_SESSION['contra'] = $_POST['contra'];
@@ -16,7 +16,7 @@ if(isset($_POST['submit'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="./Estilos/login.css"
+          href="Estilos/login.css"
           type="text/css"
     />
 </head>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="./Estilos/login.css"
+          href="Estilos/login.css"
           type="text/css"
     />
 </head>
@@ -14,7 +14,7 @@
     <header>
         <div class="logo">
             <a href="principal.php">
-                <img src="./Imagenes/logoFmat.png" class  ="logoPrincipal">
+                <img src="Imagenes/logoFmat.png" class  ="logoPrincipal">
             </a>
         </div>
     </header>

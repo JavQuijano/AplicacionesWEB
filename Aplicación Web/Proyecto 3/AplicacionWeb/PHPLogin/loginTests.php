@@ -29,6 +29,20 @@ function validarLogin(){
     return $return;
 }
 
+function validarMatricula(){
+  $return = false;
+  $usuario = $_SESSION['mat'];
+  $listaUsuario = file("../txtDatos/Usuarios");
+  foreach ($listaUsuario as $user) {
+      $variableUsuario = trim($user);
+      $detallesUsuario = explode('|', $variableUsuario);
+      if ($detallesUsuario[0] == $usuario ) {
+          $return = true;
+          break;
+      }
+  return $return;
+  }
+}
 /**
  * Funcion para validar el tipo de usuario que desea entrar al sistema:
  * Admin o Usuario general, devuelve String como identificador de este usuario.

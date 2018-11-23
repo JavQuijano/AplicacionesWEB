@@ -71,7 +71,7 @@
                     <p>
                         <a href="nuevoUsuario.php">Crear nuevo Usuario</a>
                         <br>
-                        <span class="icon icon--info">?</span><a href="#">Olvido su contraseña</a>
+                        <span class="icon icon--info">?</span><a href="Matricula.php">Olvido su contraseña</a>
                     </p>
                 </footer>
 
