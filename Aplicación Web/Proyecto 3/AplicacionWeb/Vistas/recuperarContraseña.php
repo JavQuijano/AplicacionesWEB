@@ -1,9 +1,25 @@
+<?php
+   //Quite el sesion start que estaba aqui y lo puse en el Ifset
+    require_once "../PHPLogin/loginTests.php";
+    $correcto=false;
+
+    if(isset($_POST['submit'])) {
+        $contra = $_SESSION['contra'];
+        $confContra = $_SESSION['confcontra'];
+        if($contra != $confContra) {
+            echo "<script type = text/javascript>alert('Contraseña no coincide.')</script>";
+        }else{
+            header("Location:index.php");
+        }
+    }
+?>
 <!-- No puse el php de esta seccion porque no se como van a conectar la base de datos-->
 <html>
 <head>
     <title>Mapa FMAT</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet"
           href="Estilos/login.css"
           type="text/css"
@@ -33,7 +49,7 @@
                     <div class="form__field">
                         <label>Aqui va varuable php de la pregunta</label>
                         <br><br/>
-                        <input type="text" name="mat" placeholder="Respuesta Secreta ;)" required>
+                        <input type="text" name="respuesta" placeholder="Respuesta Secreta ;)" required>
 
                         <input type="password" name="contra" placeholder="Contraseña nueva" required>
                         <input type="password" name="confcontra" placeholder="Repetir contraseña" required>

@@ -37,7 +37,6 @@ function validarMatricula(){
       $variableUsuario = trim($user);
       $detallesUsuario = explode('|', $variableUsuario);
       if ($detallesUsuario[0] == $usuario ) {
-        echo "$detallesUsuario[0]";
           $return = true;
           break;
       }
