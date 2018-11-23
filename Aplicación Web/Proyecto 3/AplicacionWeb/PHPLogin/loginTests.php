@@ -41,8 +41,8 @@ function validarMatricula(){
           $return = true;
           break;
       }
+    }
   return $return;
-  }
 }
 /**
  * Funcion para validar el tipo de usuario que desea entrar al sistema:
