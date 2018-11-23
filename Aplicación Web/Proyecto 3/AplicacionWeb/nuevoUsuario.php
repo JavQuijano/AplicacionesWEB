@@ -42,15 +42,24 @@ if(isset($_POST['submit'])) {
 
                             <input type="text" name="matricula" placeholder="Matricula" required>
 
-                        </div>
-                        <div class="form__field">
-
                             <input type="password" name="contra" placeholder="Contraseña" required>
 
-                        </div>
-                        <div class="form__field">
                             <input type="password" name="confcontra" placeholder="Confirmación Contraseña" required>
+
+                            <select class="form-item__element form-item__element--select" required>
+                              <option disabled selected value="">Seleccione una opcion</option>
+                              <option value="1">Pregunta #1</option>
+                              <option value="2">Pregunta #2</option>
+                              <option value="3">Pregunta #3</option>
+                              <option value="4">Pregunta #4</option>
+                            </select>
+
+                            <input type="text" name="respuesta" placeholder="Respuesta" required>
                         </div>
+                    </div>
+
+                    <div class ="form__field">
+
                     </div>
 
                     <footer class="login__footer">
