@@ -196,7 +196,10 @@ fieldset {
     border: none;
     margin: 0;
 }
-
+select{
+  width: 100%;
+  height: 3em;
+}
 input {
     -webkit-appearance: none;
     -moz-appearance: none;

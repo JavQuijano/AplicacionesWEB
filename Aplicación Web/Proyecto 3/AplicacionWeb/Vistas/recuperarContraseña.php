@@ -1,10 +1,11 @@
+<!-- No puse el php de esta seccion porque no se como van a conectar la base de datos-->
 <html>
 <head>
     <title>Mapa FMAT</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="./Estilos/login.css"
+          href="Estilos/login.css"
           type="text/css"
     />
 </head>
@@ -14,7 +15,7 @@
     <header>
         <div class="logo">
             <a href="principal.php">
-                <img src="./Imagenes/logoFmat.png" class  ="logoPrincipal">
+                <img src="Imagenes/logoFmat.png" class  ="logoPrincipal">
             </a>
         </div>
     </header>
@@ -34,8 +35,8 @@
                         <br><br/>
                         <input type="text" name="mat" placeholder="Respuesta Secreta ;)" required>
 
-                        <input type="password" name="mat" placeholder="Contraseña nueva" required>
-                        <input type="password" name="mat" placeholder="Repetir contraseña" required>
+                        <input type="password" name="contra" placeholder="Contraseña nueva" required>
+                        <input type="password" name="confcontra" placeholder="Repetir contraseña" required>
                     </div>
 
                 </div>

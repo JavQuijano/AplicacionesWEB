@@ -1,13 +1,12 @@
 <?php
    //Quite el sesion start que estaba aqui y lo puse en el Ifset
-    require_once "./PHPLogin/loginTests.php";
+    require_once "../PHPLogin/loginTests.php";
     $correcto=false;
     $vista="";
+    $usuarios = "";
     $_SESSION['mat'] = '';
 
     if(isset($_POST['Siguiente'])) {
-      //AQUI!
-      session_start();
         $_SESSION['mat'] = $_POST['mat'];
         $correcto = validarMatricula();
         if ($correcto == true) {
@@ -16,6 +15,7 @@
             echo "<script type = text/javascript>alert('Usuario no existe.')</script>";
             session_destroy();
         }
+
     }
 ?>
 <html>
@@ -24,7 +24,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="./Estilos/login.css"
+          href="Estilos/login.css"
           type="text/css"
     />
 </head>
