@@ -64,9 +64,9 @@ if(isset($_POST['submit'])) {
 
                     <footer class="login__footer">
                       <div class="switch">
-                      <input type="radio" class="switch-input" name="view" value="week" id="week" checked>
+                      <input type="radio" class="switch-input" name="view" value="usuario" id="usuario" checked>
                       <label for="week" class="switch-label switch-label-off">Usuario</label>
-                      <input type="radio" class="switch-input" name="view" value="month" id="month">
+                      <input type="radio" class="switch-input" name="view" value="admin" id="admin">
                       <label for="month" class="switch-label switch-label-on">Admin</label>
                       <span class="switch-selection"></span>
                     </div>
