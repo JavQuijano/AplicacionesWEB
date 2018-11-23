@@ -207,7 +207,8 @@ input {
     outline: none;
     padding: 0;
 }
-select{
+select
+label {
   width: 100%;
   height: 4em;
 }

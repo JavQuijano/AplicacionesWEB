@@ -10,11 +10,6 @@
 </head>
 <body class ="align">
 
-
-  <div id='stars'></div>
-  <div id='stars2'></div>
-  <div id='stars3'></div>
-
 <div class="contenedor" >
     <header>
         <div class="logo">
@@ -35,13 +30,20 @@
                 <div class="login__body">
 
                     <div class="form__field">
-                        <input type="text" name="mat" placeholder="Correo electronico" required>
+                        <input type="text" name="mat" placeholder="Matricula" required>
+                        <br><br/>
+                        <label>Aqui va varuable php de la pregunta</label>
+                        <br><br/>
+                        <input type="text" name="mat" placeholder="Respuesta Secreta ;)" required>
+
+                        <input type="password" name="mat" placeholder="Contraseña nueva" required>
+                        <input type="password" name="mat" placeholder="Repetir contraseña" required>
                     </div>
 
                 </div>
 
                 <footer class="login__footer">
-                    <input type="submit" value="Iniciar Sesiòn" name="submit">
+                    <input type="submit" value="Cambiar contraseña" name="submit">
 
                 </footer>
               </form>

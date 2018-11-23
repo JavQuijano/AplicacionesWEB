@@ -21,7 +21,6 @@
         }
     }
 ?>
-<!-- Tony eres un genio-->
 <html>
 <head>
     <title>Mapa FMAT</title>
@@ -48,31 +47,22 @@
             <form action="" method="post" class="form login">
 
                 <header class="login__header">
-                    <h3 class="login__title">Login</h3>
+                    <h3 class="login__title">Recuperar contraseña</h3>
                 </header>
 
                 <div class="login__body">
 
                     <div class="form__field">
-                        <input type="text" name="mat" placeholder="Escriba su matricula" required>
-                    </div>
-
-                    <div class="form__field">
-                        <input type="password" name="contra" placeholder="Escriba su contraseña" required>
+                        <input type="text" name="mat" placeholder="Matricula" required>
                     </div>
 
                 </div>
 
                 <footer class="login__footer">
-                    <input type="submit" value="Iniciar Sesiòn" name="submit">
-                    <p>
-                        <a href="nuevoUsuario.php">Crear nuevo Usuario</a>
-                        <br>
-                        <span class="icon icon--info">?</span><a href="Matricula.php">Olvido su contraseña</a>
-                    </p>
+                    <input type="submit" value="Siguiente" name="submit">
                 </footer>
+              </form>
 
-            </form>
         </div>
     <footer>
         <section class="links">
