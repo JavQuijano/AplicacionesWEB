@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "./PHPLogin/detectarSesion.php";
+require_once "../PHPLogin/detectarSesion.php";
 ?>
 <html>
 <head>
@@ -18,7 +18,7 @@ require_once "./PHPLogin/detectarSesion.php";
     <header >
       <div class="logo">
         <a href="principal.php">
-          <img src="./Imagenes/logoFmat.png" class="logoPrincipal">
+          <img src="Imagenes/logoFmat.png" class="logoPrincipal">
         </a>
       </div>
       <nav id = "barraNavegacion">
@@ -65,10 +65,10 @@ require_once "./PHPLogin/detectarSesion.php";
       <div class="logos">
         <nav>
           <a href="#">
-            <img src="./Imagenes/facebook.jpg" alt="">
+            <img src="Imagenes/facebook.jpg" alt="">
           </a>
           <a href="#">
-            <img src="./Imagenes/twitter.png" alt="">
+            <img src="Imagenes/twitter.png" alt="">
           </a>
         </nav>
 

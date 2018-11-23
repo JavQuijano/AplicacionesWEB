@@ -1,6 +1,6 @@
 <?php
-session_start();
-require "./PHPLogin/detectarSesion.php";
+@session_start();
+require "../PHPLogin/detectarSesion.php";
 ?>
 <html>
 <head>
@@ -10,7 +10,7 @@ require "./PHPLogin/detectarSesion.php";
     <title>Mapa FMAT</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Estilos/grid.css" type="text/css"/>
+    <link rel="stylesheet" href="Estilos/grid.css" type="text/css"/>
 </head>
 
 <body>
@@ -18,7 +18,7 @@ require "./PHPLogin/detectarSesion.php";
 		<header>
 			<div class="logo">
 				<a href="principal.php">
-          <img src="./Imagenes/logoFmat.png" class  ="logoPrincipal">
+          <img src="Imagenes/logoFmat.png" class  ="logoPrincipal">
         </a>
 			</div>
 
@@ -109,8 +109,8 @@ require "./PHPLogin/detectarSesion.php";
 			</section>
 
 			<div class="social">
-				<a href="https://www.facebook.com/matematicas.uady.mx/" ><img src="./Imagenes/facebook.png" class="logos"></a>
-				<a href="#"><img src= "./Imagenes/twitter.png" class="logos"></a>
+				<a href="https://www.facebook.com/matematicas.uady.mx/" ><img src="Imagenes/facebook.png" class="logos"></a>
+				<a href="#"><img src= "Imagenes/twitter.png" class="logos"></a>
 			</div>
 		</footer>
 	</div>
@@ -118,5 +118,5 @@ require "./PHPLogin/detectarSesion.php";
 </body>
 </html>
 <?php
-include "./PHPLogin/salonesPreferidos.php";
+include "../PHPLogin/salonesPreferidos.php";
 ?>

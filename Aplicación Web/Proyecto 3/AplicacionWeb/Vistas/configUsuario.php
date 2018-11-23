@@ -1,19 +1,19 @@
 <?php
-require "./PHPConfig/configUsuarioPHP.php";
-require "./PHPLogin/detectarSesion.php";
+require "../PHPConfig/configUsuarioPHP.php";
+require "../PHPLogin/detectarSesion.php";
 ?>
 <html>
 <head>
     <script type="text/javascript" src = "JS/generarBoton.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Estilos/grid.css" type="text/css"/>
+    <link rel="stylesheet" href="Estilos/grid.css" type="text/css"/>
 </head>
 <body>
 <div class="contenedor">
     <header>
         <div class="logo">
             <a href="principal.php">
-                <img src="./Imagenes/logoFmat.png" class  ="logoPrincipal">
+                <img src="Imagenes/logoFmat.png" class  ="logoPrincipal">
             </a>
         </div>
 

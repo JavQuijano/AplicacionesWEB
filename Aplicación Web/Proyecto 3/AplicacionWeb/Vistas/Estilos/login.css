@@ -207,26 +207,13 @@ input {
     outline: none;
     padding: 0;
 }
-select
-label {
-  width: 100%;
-  height: 4em;
-}
-
-.form-item__element {
-  background: #fff;
-  border-radius: 6px;
-  border: 1.2px solid gray;
-}
-
 
 input[type='submit'] {
     cursor: pointer;
 }
 
 .form input[type='text'],
-.form input[type='password']
-{
+.form input[type='password'] {
     width: 100%;
 }
 

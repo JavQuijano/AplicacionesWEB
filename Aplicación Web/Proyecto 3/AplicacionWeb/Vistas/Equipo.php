@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "./PHPLogin/detectarSesion.php";
+require_once "../PHPLogin/detectarSesion.php";
 ?>
 <html>
     <head>

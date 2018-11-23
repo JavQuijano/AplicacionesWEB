@@ -1,19 +1,19 @@
 <?php
-require "./PHPConfig/configAdminPHP.php";
-require "./PHPLogin/detectarSesion.php";
+require "../PHPConfig/configAdminPHP.php";
+require "../PHPLogin/detectarSesion.php";
 ?>
 <html>
 <head>
     <script type="text/javascript" src = "JS/generarBoton.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Estilos/grid.css" type="text/css"/>
+    <link rel="stylesheet" href="Estilos/grid.css" type="text/css"/>
 </head>
 <body>
 <div class="contenedor">
     <header>
         <div class="logo">
             <a href="principal.php">
-                <img src="./Imagenes/logoFmat.png" class  ="logoPrincipal">
+                <img src="Imagenes/logoFmat.png" class  ="logoPrincipal">
             </a>
         </div>
 
@@ -74,7 +74,7 @@ require "./PHPLogin/detectarSesion.php";
         </aside>
             </form>
             <form method="post">
-                <textarea name="texto" cols="100" rows="40"><?php echo iniciarTextField();?> </textarea>
+                <textarea name="texto" cols="100" rows="40"><?php echo iniciarTextField();?></textarea>
                 <br>
                 <input type="submit" name="cambiarHorario"  value="Cambiar Horario">
             </form>

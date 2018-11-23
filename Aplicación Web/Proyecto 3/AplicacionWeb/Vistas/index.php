@@ -1,14 +1,12 @@
 <?php
-   //Quite el sesion start que estaba aqui y lo puse en el Ifset
-    require_once "./PHPLogin/loginTests.php";
+    session_start();
+    require_once "../PHPLogin/loginTests.php";
     $correcto=false;
     $vista="";
     $_SESSION['mat'] = '';
     $_SESSION['contra'] = '';
 
     if(isset($_POST['submit'])) {
-      //AQUI!
-      session_start();
         $_SESSION['mat'] = $_POST['mat'];
         $_SESSION['contra'] = $_POST['contra'];
         $correcto = validarLogin();
@@ -28,17 +26,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-          href="./Estilos/login.css"
+          href="Estilos/login.css"
           type="text/css"
     />
 </head>
 <body class ="align">
 
+
+  <div id='stars'></div>
+  <div id='stars2'></div>
+  <div id='stars3'></div>
+
 <div class="contenedor" >
     <header>
         <div class="logo">
             <a href="principal.php">
-                <img src="./Imagenes/logoFmat.png" class  ="logoPrincipal">
+                <img src="Imagenes/logoFmat.png" class  ="logoPrincipal">
             </a>
         </div>
     </header>
@@ -68,7 +71,7 @@
                     <p>
                         <a href="nuevoUsuario.php">Crear nuevo Usuario</a>
                         <br>
-                        <span class="icon icon--info">?</span><a href="Matricula.php">Olvido su contraseña</a>
+                        <span class="icon icon--info">?</span><a href="#">Olvido su contraseña</a>
                     </p>
                 </footer>
 
