@@ -6,8 +6,6 @@
     $_SESSION['mat'] = '';
 
     if(isset($_POST['Siguiente'])) {
-      //AQUI!
-      session_start();
         $_SESSION['mat'] = $_POST['mat'];
         $correcto = validarMatricula();
         if ($correcto == true) {
