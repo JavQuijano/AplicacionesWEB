@@ -36,15 +36,14 @@ function validarMatricula(){
   foreach ($listaUsuario as $user) {
       $variableUsuario = trim($user);
       $detallesUsuario = explode('|', $variableUsuario);
-      if ($detallesUsuario[0] == $usuario) {
-          echo "$detallesUsuario[0]";
+      if ($detallesUsuario[0] == $usuario ) {
+        echo "$detallesUsuario[0]";
           $return = true;
           break;
-        }
       }
+    }
   return $return;
 }
-
 /**
  * Funcion para validar el tipo de usuario que desea entrar al sistema:
  * Admin o Usuario general, devuelve String como identificador de este usuario.
