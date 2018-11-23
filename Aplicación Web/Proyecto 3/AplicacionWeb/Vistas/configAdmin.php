@@ -29,7 +29,6 @@ require "../PHPLogin/detectarSesion.php";
     </header>
     <div class = "contenedor-centro" id = centro>
         <div class="container">
-    <form method="post" action ="">
         <aside id = "sidebar">
             <select name="salonACambiar" >
                 <option value="C1" name="C1">C1</option>
@@ -70,12 +69,8 @@ require "../PHPLogin/detectarSesion.php";
 
             </select>
                 <br>
-                <input type ="submit" name="cambiarSalon" value="Cambiar Salon">
         </aside>
-            </form>
             <form method="post">
-                <textarea name="texto" cols="100" rows="40"><?php echo iniciarTextField();?></textarea>
-                <br>
                 <input type="submit" name="cambiarHorario"  value="Cambiar Horario">
             </form>
         </div>
