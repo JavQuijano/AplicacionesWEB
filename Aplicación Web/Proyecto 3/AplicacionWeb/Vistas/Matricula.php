@@ -2,8 +2,6 @@
    //Quite el sesion start que estaba aqui y lo puse en el Ifset
     require_once "../PHPLogin/loginTests.php";
     $correcto=false;
-    $vista="";
-    $usuarios = "";
     $_SESSION['mat'] = '';
 
     if(isset($_POST['Siguiente'])) {
