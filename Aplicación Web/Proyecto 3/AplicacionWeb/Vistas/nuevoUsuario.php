@@ -63,6 +63,13 @@ if(isset($_POST['submit'])) {
                     </div>
 
                     <footer class="login__footer">
+                      <div class="switch">
+                      <input type="radio" class="switch-input" name="view" value="week" id="week" checked>
+                      <label for="week" class="switch-label switch-label-off">Usuario</label>
+                      <input type="radio" class="switch-input" name="view" value="month" id="month">
+                      <label for="month" class="switch-label switch-label-on">Admin</label>
+                      <span class="switch-selection"></span>
+                    </div>
                         <input type="submit" name="submit" value="Crear Usuario">
                     </footer>
 
