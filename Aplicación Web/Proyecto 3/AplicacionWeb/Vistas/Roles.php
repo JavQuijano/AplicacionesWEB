@@ -48,15 +48,15 @@ require "../PHPLogin/detectarSesion.php";
                 <table id="tabla" class="display">
                 <thead>
                     <tr>
-                        <th>Salones</th>
-                        <th>Maestros</th>
-                        <th>7:30 - 9:00</th>
-                        <th>9:00 - 10:30</th>
-                        <th>10:30 - 12:00</th>
-                        <th>12:00 - 1:30</th>
-                        <th>14:00 - 15:30</th>
-                        <th>15:30 - 17:00</th>
-                        <th>17:00 - 18:30</th>
+                        <th>Usuario</th>
+                        <th>Nombre</th>
+                        <th>Rol 1</th>
+                        <th>Rol 2</th>
+                        <th>Rol 3</th>
+                        <th>Rol 4</th>
+                        <th>Rol 5</th>
+                        <th>Rol 6</th>
+                        <th>Rol 7</th>
                     </tr>
                 </thead>
                 <tbody>
