@@ -20,6 +20,12 @@ class Salon extends EntidadBase
         parent:: __construct($table);
     }
 
+    public function asignarDatos($arregloDatos)
+    {
+        $this->clvSalon = $arregloDatos['ClvSalon'];
+        $this->nombreSalon = $arregloDatos['nombreSalon'];
+    }
+
     /**
      * @return mixed
      */
@@ -59,6 +65,21 @@ class Salon extends EntidadBase
             ".$this->nombreSalon."');";
         $save = $this->db()->query($query);
         return $save;
+    }
+
+    public function buscarIdSalon($salon){
+        $idSalon = null;
+        $datosSalon = null;
+        try {
+            $datosSalon = $this->getBy("nombreSalon", $salon);
+            $encontrado = true;
+        }catch(Exception $e){
+            $encontrado = false;
+        }
+        if($encontrado){
+            $idSalon = $datosSalon['ClvSalon'];
+        }
+        return $idSalon;
     }
 
 }

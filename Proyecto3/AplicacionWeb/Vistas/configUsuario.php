@@ -1,14 +1,35 @@
 <?php
-require "../PHPConfig/configUsuarioPHP.php";
-require "../PHPLogin/detectarSesion.php";
+@session_start();
+require_once "../controlador/ControladorHeader.php";
+require_once "../controlador/ControladorFavoritos.php";
+$idUsuario = $_SESSION['idUsuario'];
+$controladorHeader = new ControladorHeader($idUsuario);
+$controladorHeader->escribirBoton();
+$controlador = new ControladorFavoritos($idUsuario);
+if(isset($_POST['submit'])){
+    if(isset($_POST['checkFav'])) {
+        $controlador->actualizarFavoritos();
+    }else{
+        echo  "<script type='text/javascript'>alert('Seleccionar al menos un campo')</script>";
+    }
+}
 ?>
 <html>
 <head>
     <script type="text/javascript" src = "JS/generarBoton.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Estilos/grid.css" type="text/css"/>
+
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.css">
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
+
+    <script type="text/javascript" charset="utf8" src="DataTables/datatables.js"></script>
+    <script type="text/javascript" src="DataTables/datatables.min.js"></script>
+
 </head>
 <body>
+
+
 <div class="contenedor">
     <header>
         <div class="logo">
@@ -29,53 +50,207 @@ require "../PHPLogin/detectarSesion.php";
     </header>
     <div class = "contenedor-centro" id = centro>
         <div class="container">
-        <form method ="post" action ="">
-            <select name="comboBoxSalones" id="">
-                <option selected disabled "></option>
-                <option value="C1" name="C1">C1</option>
-                <option value="C2" name="C2">C2</option>
-                <option value="C3" name="C3">C3</option>
-                <option value="C4" name="C4">C4</option>
-                <option value="C5" name="C5">C5</option>
-                <option value="C6" name="C6">C6</option>
-                <option value="C7" name="C7">C7</option>
-                <option value="C8" name="C8">C8</option>
-                <option value="C9" name="C9">C9</option>
-
-                <option value="D1" name="D1">D1</option>
-                <option value="D2" name="D2">D2</option>
-                <option value="D3" name="D3">D3</option>
-                <option value="D4" name="D4">D4</option>
-
-                <option value="F2" name="F2">F2</option>
-                <option value="F3" name="F3">F3</option>
-
-                <option value="H1" name="H1">H1</option>
-                <option value="H2" name="H2">H2</option>
-                <option value="H3" name="H3">H3</option>
-                <option value="H4" name="H4">H4</option>
-                <option value="H5" name="H5">H5</option>
-                <option value="H6" name="H6">H6</option>
-                <option value="H7" name="H7">H7</option>
-                <option value="H8" name="H8">H8</option>
-
-                <option value="CC1" name="CC1">CC1</option>
-                <option value="CC2" name="CC2">CC2</option>
-                <option value="CC3" name="CC3">CC3</option>
-                <option value="CC4" name="CC4">CC4</option>
-                <option value="CC5" name="CC5">CC5</option>
-                <option value="CC7" name="CC7">CC7</option>
-                <option value="CC8" name="CC8">CC8</option>
-                <option value="CC9" name="CC9">CC9</option>
-            </select>
-
-            <<aside id = "sidebar">
-                <div class="info" id="info">
-            <input type="submit" value="Agregar" name="Agregar">
-                </div>
+            <aside id = "sidebar">
+                <form method="post">
+                  <table id="tabla" class="display" align="center">
+                  <thead>
+                      <tr>
+                          <th>Salones</th>
+                          <th>Favoritos</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>C1</td>
+                          <td>
+                            <input type="checkbox" id='regular' name="checkFav[]" value="C1" <?php if(in_array('C1', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                          </td>
+                      </tr>
+                      <tr>
+                        <td>C2</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="C2" <?php if(in_array('C2', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>C3</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="C3" <?php if(in_array('C3', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>C4</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="C4" <?php if(in_array('C4', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>C5</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="C5" <?php if(in_array('C5', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>C6</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="C6" <?php if(in_array('C6', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>C7</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="C7" <?php if(in_array('C7', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>C8</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="C8" <?php if(in_array('C8', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>C9</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="C9" <?php if(in_array('C9', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>D1</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="D1" <?php if(in_array('D1', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>D2</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="D2"<?php if(in_array('D2', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>D3</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="D3" <?php if(in_array('D3', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>D4</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="D4" <?php if(in_array('D4', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>F2</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="F2" <?php if(in_array('F2', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>F3</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="F3" <?php if(in_array('F3', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>H1</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="H1" <?php if(in_array('H1', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>H2</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="H2" <?php if(in_array('H2', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>H3</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="H3" <?php if(in_array('H3', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>H4</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="H4" <?php if(in_array('H4', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>H5</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="H5" <?php if(in_array('H5', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>H6</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="H6" <?php if(in_array('H6', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>H7</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="H7" <?php if(in_array('H7', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>H8</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="H8" <?php if(in_array('H8', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>CC1</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="CC1" <?php if(in_array('CC1', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>CC2</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="CC2" <?php if(in_array('CC2', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>CC3</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="CC3" <?php if(in_array('CC3', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>CC4</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="CC4" <?php if(in_array('CC4', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>CC5</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="CC5" <?php if(in_array('CC5', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>CC7</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="CC7" <?php if(in_array('CC7', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>CC8</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="CC8" <?php if(in_array('CC8', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>CC9</td>
+                        <td>
+                          <input type="checkbox" id='regular' name="checkFav[]" value="CC9" <?php if(in_array('CC9', $controlador->getNombreFavoritos())) echo( 'checked'); ?>/>
+                        </td>
+                      </tr>
+                  </tbody>
+              </table>
+              <input type="submit" name="submit"  value="Actualizar Favoritos">
+                </form>
             </aside>
-        </form>
-        </section>
         </div>
     </div>
     <footer>

@@ -1,6 +1,13 @@
 <?php
+require_once "../controlador/ControladorHeader.php";
+require_once "../controlador/ControladorPrincipal.php";
 @session_start();
-require "../PHPLogin/detectarSesion.php";
+$idUsuario = $_SESSION['idUsuario'];
+$controladorHeader = new ControladorHeader($idUsuario);
+$controladorHeader->escribirBoton();
+$controladorSalones= new ControladorPrincipal($controladorHeader->getUsuario());
+$controladorSalones->colorearFavoritos();
+
 ?>
 <html>
 <head>
@@ -26,7 +33,7 @@ require "../PHPLogin/detectarSesion.php";
 				<a href="principal.php">Inicio</a>
 				<a href="Futuro.php">Proyectos</a>
 				<a href="Equipo.php">Contacto</a>
-                <a href="configUsuario.php" id="btnConfig">Texto</a>
+                <a id='btnConfig' href=<?php echo $controladorHeader->obtenerDireccion()?>><?php echo $controladorHeader->obtenerTextoBoton()?></a>"
                 <form method="post" action="">
                     <input type="submit" name="cerrarSesion" value="CerrarSesion" id="botonLogin">
                 </form>
@@ -117,6 +124,3 @@ require "../PHPLogin/detectarSesion.php";
 
 </body>
 </html>
-<?php
-include "../PHPLogin/salonesPreferidos.php";
-?>
