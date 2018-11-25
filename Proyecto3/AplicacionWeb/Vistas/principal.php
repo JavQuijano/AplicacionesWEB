@@ -1,14 +1,15 @@
 <?php
-require_once "../controlador/ControladorHeader.php";
 require_once "../controlador/ControladorPrincipal.php";
+require_once "../controlador/ControladorHeader.php";
 @session_start();
-//require "../PHPLogin/detectarSesion.php";
 $idUsuario = $_SESSION['idUsuario'];
 $controladorHeader = new ControladorHeader($idUsuario);
 $controladorHeader->escribirBoton();
+if(isset($_POST['cerrarSesion']))
+{
+    $controladorHeader->cerrarSesion();
+}
 $controladorSalones= new ControladorPrincipal($controladorHeader->getUsuario());
-
-
 ?>
 <html>
 <head>

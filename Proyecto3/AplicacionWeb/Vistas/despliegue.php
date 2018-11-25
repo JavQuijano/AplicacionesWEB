@@ -4,8 +4,8 @@ $idSalon = null;
 if(isset($_POST['action'])){
     $horarios = array();
     $idSalon = $_POST['action'];
-    $control = new ControladorDesplegarHorario($idSalon);
-    $horarios = $control->getHorarios();
+    $control = new ControladorDesplegarHorario();
+    $horarios = $control->getHorariosUnSalon($idSalon);
 }
 echo "<head><link rel='stylesheet' href='./Estilos/est_salones.css' type='text/css'/></head>";
 echo "<ul>Salon $idSalon";

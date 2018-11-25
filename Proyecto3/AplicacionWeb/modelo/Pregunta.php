@@ -83,7 +83,7 @@ class Pregunta extends EntidadBase
 
     public function save()
     {
-        $query = "INSERT INTO PregutasSeguridad VALUES
+        $query = "INSERT INTO PreguntasSeguridad VALUES
           (
             '$this->pregunta',
             '$this->respuesta',

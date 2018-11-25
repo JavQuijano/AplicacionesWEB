@@ -9,15 +9,24 @@ require_once "../modelo/Salon.php";
 class ControladorDesplegarHorario
 {
     private $salon;
-    private $horarios;
-    public function __construct($idSalon)
+    private $horariosUnSalon;
+    private $todosHorarios;
+
+    public function __construct()
     {
-        $this->horarios = array();
+        $this->horariosUnSalon = array();
         $this->salon = new Salon();
-        $this->horarios = $this->salon->getHorariosBD($idSalon);
+        $this->todosHorarios = array();
     }
 
-    public function getHorarios(){
-        return $this->horarios;
+    public function getHorariosUnSalon($idSalon){
+        $this->horariosUnSalon = $this->salon->getHorariosBD($idSalon);
+        return $this->horariosUnSalon;
     }
+
+    public function getTodosHorarios(){
+        $this->todosHorarios = $this->salon->getTodosHorarios();
+        return $this->todosHorarios;
+    }
+
 }

@@ -317,4 +317,47 @@ class Usuario extends EntidadBase
 
     }
 
+    public function esAdmin($clvUsuario)
+    {
+        $esAdmin = false;
+        $query = "SELECT * FROM usuarios_has_roles 
+        WHERE Usuarios_idUsuarios = '$clvUsuario';";
+        $pdo = $this->runQuery($query);
+        $tabla = $pdo->fetchAll();
+        foreach ($tabla as $rol)
+        {
+            if($rol['Roles_idRol']==2)
+            {
+                $esAdmin= true;
+                break;
+            }
+        }
+        return $esAdmin;
+
+    }
+    public function esUser($clvUsuario)
+    {
+        $esAdmin = false;
+        $query = "SELECT * FROM usuarios_has_roles 
+        WHERE Usuarios_idUsuarios = '$clvUsuario';";
+        $pdo = $this->runQuery($query);
+        $tabla = $pdo->fetchAll();
+        foreach ($tabla as $rol)
+        {
+            if($rol['Roles_idRol']==1)
+            {
+                $esAdmin= true;
+                break;
+            }
+        }
+        return $esAdmin;
+    }
+    public function tablaUsuarios()
+    {
+        $query = "SELECT * FROM usuarios;";
+
+        $PDO = $this->runQuery($query);
+        return $PDO->fetchAll();
+    }
+
 }

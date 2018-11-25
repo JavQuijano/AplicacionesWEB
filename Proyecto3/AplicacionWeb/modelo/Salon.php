@@ -94,4 +94,11 @@ class Salon extends EntidadBase
         return $horarios;
     }
 
+    public function getTodosHorarios(){
+        $query = "select * from (salon join clases on Salon.ClvSalon = Clases.ClvSalon);";
+        $resultSet = $this->runQuery($query);
+        $horarios = $resultSet->fetchAll(PDO::FETCH_ASSOC);
+        return $horarios;
+    }
+
 }

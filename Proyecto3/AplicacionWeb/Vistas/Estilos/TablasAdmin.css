@@ -1,0 +1,40 @@
+input[type="text"] {
+  padding-left: 0.5rem;
+  margin-left: -0.5rem;
+  width: 100%;
+  line-height: 1.8rem;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: #f5f5f5;
+  border: 0px;
+}
+
+table {
+  margin: 0 auto;
+  width: 90%;
+  background-color: #ddd;
+  border: 1px solid #999;
+}
+table thead th {
+  padding-left: 0.5rem;
+  line-height: 2rem;
+  font-size: 1.25rem;
+}
+table tbody td {
+  padding-left: 0.5rem;
+  border: 1px solid #999;
+  line-height: 1.8rem;
+}
+
+.edit, .trash, .new-row {
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background-color 0.4s ease;
+  transition: color 0.4s ease;
+}
+.edit:hover, .trash:hover, .new-row:hover {
+  cursor: pointer;
+  background-color: #2a2a2a;
+  color: #ddd;
+}

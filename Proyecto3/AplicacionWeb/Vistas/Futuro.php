@@ -1,6 +1,13 @@
 <?php
-session_start();
-require_once "../PHPLogin/detectarSesion.php";
+require_once "../controlador/ControladorHeader.php";
+@session_start();
+$idUsuario = $_SESSION['idUsuario'];
+$controladorHeader = new ControladorHeader($idUsuario);
+$controladorHeader->escribirBoton();
+if(isset($_POST['cerrarSesion']))
+{
+    $controladorHeader->cerrarSesion();
+}
 ?>
 <html>
 <head>
@@ -25,7 +32,7 @@ require_once "../PHPLogin/detectarSesion.php";
           <a href="principal.php">Inicio</a>
           <a href="Futuro.php">Proyectos</a>
           <a href="Equipo.php">Contacto</a>
-          <a href="configUsuario.php" id="btnConfig">Texto</a>
+          <a id='btnConfig' href=<?php echo $controladorHeader->obtenerDireccion()?>><?php echo $controladorHeader->obtenerTextoBoton()?></a>
           <form method="post" action="">
               <input type="submit" name="cerrarSesion" value="CerrarSesion" id="botonLogin">
           </form>

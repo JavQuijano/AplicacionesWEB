@@ -55,7 +55,11 @@ class ControladorHeader
     {
         return $this->boton['direccion'];
     }
-
+    public function cerrarSesion()
+    {
+        @session_destroy();
+        header("Location: ./index.php");
+    }
     /**
      * @return Usuario
      */

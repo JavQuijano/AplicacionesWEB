@@ -6,6 +6,7 @@
  * Time: 4:42 PM
  */
 
+require_once "../modelo/EntidadBase.php";
 class Clases extends EntidadBase
 {
     private $clvSalon;
@@ -20,22 +21,43 @@ class Clases extends EntidadBase
     public function __construct()
     {
         $table = "Clases";
-        parent :: __contruct($table);
-    }
-    public function save()
-    {
-        $query = "INSERT INTO usuarios (clvUsuario,nombreUsuario,constraseñaUsuario,sal,estado,Acceso_idAcceso,salonesFavoritos
-          ,idPregunta1,idPregunta2,respuesta1,respuesta2)VALUES
-          (
-            '".$this->ClvSalon."''
-            ".$this->horaInicio."''
-            ".$this->materia."''
-            ".$this->idClase."''
-            ".$this->horaFin."');";
-        $save = $this->db()->query($query);
-        return $save;
+        parent:: __construct($table);
     }
 
+    public function updateHorario($data)
+    {
+        $horaInicio = $data['HoraInicio'];
+        $horaFin = $data['HoraFin'];
+        $clvSalon = $data['ClvSalon'];
+        $materia = $data['Materia'];
+
+        $msg = null;
+        try {
+            $query = "UPDATE Clases SET
+        HoraInicio = '$horaInicio',
+        HoraFin = '$horaFin'
+        WHERE ClvSalon = '$clvSalon' AND Materia = '$materia'";
+            $result = $this->runQuery($query);
+            $msg = "Update Correcto";
+        }catch(Exception  $e){
+            $msg = $e->getMessage();
+        }
+        return $msg;
+    }
+
+    public function deleteClase($data){
+        $clvSalon = $data['ClvSalon'];
+        $materia = $data['Materia'];
+
+        try {
+            $query = "delete from clases where ClvSalon = '$clvSalon' and Materia = '$materia'";
+            $result = $this->runQuery($query);
+            $msg = "Delete Correcto";
+        }catch(Exception  $e){
+            $msg = $e->getMessage();
+        }
+        return $msg;
+    }
     /**
      * @return mixed
      */
@@ -116,7 +138,32 @@ class Clases extends EntidadBase
         $this->horaFin = $horaFin;
     }
 
+    public function agregarClase($data)
+    {
+        $horaInicio = $data['horaInicio'];
+        $horaFin = $data['horaFin'];
+        $nombreSalon = $data['nombreSalon'];
+        $materia = $data['materia'];
+        $array = $this->buscarIdSalon($nombreSalon);
+        if($array != false){
+            $clvSalon = $array['ClvSalon'];
+            $query = "Insert into clases values ('$clvSalon', '$horaInicio', '$materia', '$horaFin')";
+            $resultSet = $this->runQuery($query);
+            var_dump($resultSet);
+            return true;
+        }
+        return false;
+    }
 
-
+    private function buscarIdSalon($nombreSalon){
+        try {
+            $query = "SELECT ClvSalon from Salon WHERE nombreSalon = '$nombreSalon'";
+            $resultSet = $this->runQuery($query);
+            return $resultSet->fetch(PDO::FETCH_ASSOC);
+        }catch(Exception $e){
+            $msg = false;
+            return $msg;
+        }
+    }
 
 }
