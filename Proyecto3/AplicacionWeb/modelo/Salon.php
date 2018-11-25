@@ -5,17 +5,19 @@
  * Date: 11/21/2018
  * Time: 4:38 PM
  */
-
+require_once "../modelo/EntidadBase.php";
 class Salon extends EntidadBase
 {
     private $clvSalon;
     private $nombreSalon;
+    private $horarios;
 
     /**
      * Salon constructor.
      */
     public function __construct()
     {
+        $horarios = array();
         $table = "Salon";
         parent:: __construct($table);
     }
@@ -80,6 +82,16 @@ class Salon extends EntidadBase
             $idSalon = $datosSalon['ClvSalon'];
         }
         return $idSalon;
+    }
+
+    public function getHorariosBD($nombreSalon){
+        $idSalon = $this->buscarIdSalon($nombreSalon);
+        $query = "select clases.HoraInicio, clases.materia, clases.horafin 
+                  from (salon inner join clases on salon.clvSalon = clases.clvSalon) 
+                  where salon.ClvSalon = '$idSalon';";
+        $resultSet = $this->runQuery($query);
+        $horarios = $resultSet->fetchAll(PDO::FETCH_ASSOC);
+        return $horarios;
     }
 
 }

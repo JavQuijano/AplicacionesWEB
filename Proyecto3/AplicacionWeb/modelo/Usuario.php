@@ -273,7 +273,6 @@ class Usuario extends EntidadBase
         $idSalon = $salon->getClvSalon();
         $query = "INSERT INTO favoritos VALUES
           ('$this->ClvUsuarios','$idSalon');";
-        echo "agreagar";
         $this->runQuery($query);
     }
 
@@ -282,7 +281,6 @@ class Usuario extends EntidadBase
         $nuevoSalon =$this->crearSalon('ClvSalon', $favorito);
         $idSalon = $nuevoSalon->getClvSalon($favorito);
         $query = "DELETE FROM favoritos WHERE Usuarios_idUsuarios ='$this->ClvUsuarios'and Salon_idSalon ='$idSalon';";
-        echo "eliminar";
         $this->runQuery($query);
         unset($this->favoritos[$favorito-1]);
         unset($this->nombreFavoritos[$favorito-1]);

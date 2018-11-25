@@ -24,8 +24,9 @@ class ControladorPrincipal
     {
         foreach ($this->usuario->getNombreFavoritos() as $stringPart)
         {
-            echo "se coloreo :". $stringPart;
-        echo "<script type='text/javascript'>setPrefered('$stringPart')</script>";
+            echo "<script type='text/javascript'>
+                setPrefered('".$stringPart."');
+              </script>";
         }
     }
 }
