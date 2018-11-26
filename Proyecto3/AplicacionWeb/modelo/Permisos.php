@@ -5,8 +5,8 @@
  * Date: 11/21/2018
  * Time: 10:09 PM
  */
-
-class Permisos
+require_once "../modelo/EntidadBase.php";
+class Permisos extends EntidadBase
 {
     private $idPermisos;
     private $Agregar;
@@ -87,5 +87,10 @@ class Permisos
         $this->Editar = $Editar;
     }
 
-
+    public function getPermisosBD(){
+        $query = "select Permisos_idPermisos, nomRol from (Permisos_has_Roles join Roles on Roles_idRol = idRol);";
+        $run = $this->runQuery($query);
+        $resultSet = $run->fetchAll(PDO::FETCH_ASSOC);
+        return $resultSet;
+    }
 }

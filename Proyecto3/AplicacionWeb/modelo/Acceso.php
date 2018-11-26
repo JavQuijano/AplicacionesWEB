@@ -93,7 +93,7 @@ class Acceso extends EntidadBase
 
     public function intentoFallido(){
         $this->intentos += 1;
-        if($this->intentos < 3) {
+        if($this->intentos < 4) {
             $query = "update acceso set intentos = '$this->intentos' where Usuarios_ClvUsuarios = '$this->idUsuario';";
             $run = $this->runQuery($query);
         }

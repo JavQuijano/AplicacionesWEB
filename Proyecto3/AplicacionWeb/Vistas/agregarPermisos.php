@@ -1,47 +1,43 @@
 <?php
-    require_once "../controlador/ControladorRoles.php";
-    require_once "../controlador/ControladorHeader.php";
-    @session_start();
-    $idUsuario = $_SESSION['idUsuario'];
-    $controladorHeader = new ControladorHeader($idUsuario);
-    $controladorHeader->escribirBoton();
-
-$controladorRoles = new ControladorRoles();
-    if(isset($_POST['cerrarSesion']))
-    {
-        $controladorHeader->cerrarSesion();
-    }
+require_once "../controlador/ControladorHeader.php";
+require_once "../controlador/ControladorPermisos.php";
+@session_start();
+$idUsuario = $_SESSION['idUsuario'];
+$controladorHeader = new ControladorHeader($idUsuario);
+$controladorHeader->escribirBoton();
+if(isset($_POST['cerrarSesion']))
+{
+    $controladorHeader->cerrarSesion();
+}
+$controladorPermisos = new ControladorPermisos();
 if(isset($_POST['submit']))
 {
-    $controladorRoles->editarRol();
+    $controladorPermisos->editarPermisos();
 }
 ?>
+
 <html>
 <head>
-
-    <script type="text/javascript" src="JS/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="JS/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src = "JS/generarBoton.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Estilos/grid.css" type="text/css"/>
 
     <link rel="stylesheet" type="text/css" href="DataTables/datatables.css">
-
     <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
+
+    <link rel="stylesheet" type="text/css" href="Estilos/TablasAdmin.css">
 
     <script type="text/javascript" charset="utf8" src="DataTables/datatables.js"></script>
     <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 
-
-
 </head>
 <body>
-
   <script type="text/javascript">
     $(document).ready( function () {
     $('#tabla').DataTable();
 } );
   </script>
-
 <div class="contenedor">
     <header>
         <div class="logo">
@@ -62,28 +58,25 @@ if(isset($_POST['submit']))
     </header>
     <div class = "contenedor-centro" id = centro>
         <div class="container">
-            <aside id = "sidebar">
-                <form action ="" method="post">
-                  <table id="tabla" class="display">
-                  <thead>
-                      <tr>
-                          <th>Usuario</th>
-                          <th>Admin</th>
-                          <th>Usuario</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-
-
-                      <?php $controladorRoles->pintarLineas();?>
-
-
-                  </tbody>
-              </table>
-
-              <input type="submit" name="submit"  value="Cambiar Roles">
-                </form>
-            </aside>
+        <aside id = "sidebar">
+            <form method="post" action="">
+            <table id ="tabla" class="display">
+              <thead>
+                <tr>
+                  <th style="width:18%; text-align:left;">Rol</th>
+                  <th style="width:18%; text-align:left;">Agregar</th>
+                  <th style="width:18%; text-align:left;">Eliminar</th>
+                  <th style="width:18%; text-align:left;">Editar</th>
+                </tr>
+              </thead>
+              <tbody id="tablaPermiso">
+                <?php $controladorPermisos->pintarLineas();?>
+              </tbody>
+            </table>
+                <br>
+            <input type="submit" name="submit"  value="Actualizar Permisos">
+            </form>
+        </aside>
         </div>
     </div>
     <footer>
@@ -99,6 +92,6 @@ if(isset($_POST['submit']))
         </div>
     </footer>
     </div>
-
+</div>
 </body>
 </html>

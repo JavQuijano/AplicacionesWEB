@@ -46,8 +46,8 @@ if(isset($_POST['submit'])){
             <a href="Futuro.php">Proyectos</a>
             <a href="Equipo.php">Contacto</a>
             <a href="Roles.php">Roles</a>
+            <a href="agregarPermisos.php">Permisos</a>
             <a href="Bitacora.php">Bitacora</a>
-            <a href="Sistemas.php">Sistema</a>
             <a id='btnConfig' href=<?php echo $controladorHeader->obtenerDireccion()?>><?php echo $controladorHeader->obtenerTextoBoton()?></a>
             <form method="post" action="">
                 <input type="submit" name="cerrarSesion" value="CerrarSesion" id="botonLogin">

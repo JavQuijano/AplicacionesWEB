@@ -9,7 +9,6 @@
 require_once "../controlador/ControladorBitacora.php";
 if(isset($_POST['action'])){
     $bitacora = array();
-    $accion = $_POST['action'];
     $controlDespliegue = new ControladorBitacora();
     $bitacora = $controlDespliegue->getBitacora();
     despliegueBitacora($bitacora);

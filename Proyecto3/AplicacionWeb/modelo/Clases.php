@@ -149,7 +149,6 @@ class Clases extends EntidadBase
             $clvSalon = $array['ClvSalon'];
             $query = "Insert into clases values ('$clvSalon', '$horaInicio', '$materia', '$horaFin')";
             $resultSet = $this->runQuery($query);
-            var_dump($resultSet);
             return true;
         }
         return false;

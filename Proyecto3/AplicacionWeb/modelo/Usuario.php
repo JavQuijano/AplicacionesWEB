@@ -316,6 +316,7 @@ class Usuario extends EntidadBase
         $this->runQuery($query);
 
     }
+
     public function tablaUsuarios()
     {
         $query = "SELECT * FROM usuarios;";
