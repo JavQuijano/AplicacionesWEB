@@ -4,8 +4,10 @@ ul {
     color: white;
 }
 @media screen and (max-width: 800px)
-{
-  padding: 15px;
-  margin: 15px;
-  color: white;
+ {
+    div {
+        padding: 15px;
+        margin: 15px;
+        color: white;
+    }
 }

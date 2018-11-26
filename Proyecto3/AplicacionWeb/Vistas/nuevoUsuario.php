@@ -6,7 +6,6 @@ $controladorNuevoUsuario = new ControladorNuevoUsuario();
 if(isset($_POST['submit']))
 {
     $controladorNuevoUsuario->crearUsuario();
-
 }
 ?>
 
@@ -15,10 +14,8 @@ if(isset($_POST['submit']))
     <title>Mapa FMAT</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
-          href="Estilos/login.css"
-          type="text/css"
-    />
+    <link rel="stylesheet" href="Estilos/login.css" type="text/css"/>
+    <link rel="stylesheet" href="Estilos/tablaFavoritos.css" type="text/css"/>
 </head>
 <body class ="align">
 <div class="contenedor">
@@ -46,10 +43,10 @@ if(isset($_POST['submit']))
 
                             <select class="form-item__element form-item__element--select" name="seleccion"required>
                               <option disabled selected value="">Seleccione una opcion</option>
-                              <option value="1">Pregunta #1</option>
-                              <option value="2">Pregunta #2</option>
-                              <option value="3">Pregunta #3</option>
-                              <option value="4">Pregunta #4</option>
+                              <option value="Cual fue tu primera mascota?">Cual fue tu primera mascota?</option>
+                              <option value="Cual es tu comida favorita?">Cual es tu comida favorita?</option>
+                              <option value="Cual es tu sabor favorito de chicle?">Cual es tu sabor favorito de chicle?</option>
+                              <option value="Cual fue el primer libro que leiste?">Cual fue el primer libro que leiste?</option>
                             </select>
 
                             <input type="text" name="respuesta" placeholder="Respuesta" required>
@@ -63,9 +60,9 @@ if(isset($_POST['submit']))
                     <footer class="login__footer">
                       <div class="switch">
                       <input type="radio" class="switch-input" name="view" value="usuario" id="usuario" checked>
-                      <label for="Usuario" class="switch-label switch-label-off">Usuario</label>
+                      <label for="Usuario" class="switch-label switch-label-off" hidden>Usuario</label>
                       <input type="radio" class="switch-input" name="view" value="admin" id="admin">
-                      <label for="Admin" class="switch-label switch-label-on">Admin</label>
+                      <label for="Admin" class="switch-label switch-label-on" hidden>Admin</label >
                       <span class="switch-selection"></span>
                     </div>
                         <input type="submit" name="submit" value="Crear Usuario">

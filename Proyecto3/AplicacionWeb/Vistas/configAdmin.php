@@ -16,6 +16,31 @@ if(isset($_POST['submit'])){
 ?>
 <html>
 <head>
+    <script type="text/javascript">
+        function store(){
+            var inputNombreSalon = document.getElementById("nombreSalon");
+            localStorage.setItem("nombreSalon", inputNombreSalon);
+            var inputMateria = document.getElementById("materia");
+            localStorage.setItem("materia",inputMateria);
+            var inputHoraInicio = document.getElementById("horaInicio");
+            localStorage.setItem("horaInicio",inputHoraInicio);
+            var inputHoraFin = document.getElementById("horaFin");
+            localStorage.setItem("horaFin",inputHoraFin);
+        }
+
+        function setStoredValues(){
+            if(localStorage.length > 0) {
+                var inputNombreSalon = document.getElementById("nombreSalon");
+                inputNombreSalon.appendChild(localStorage.getItem('nombreSalon'));
+                var inputMateria = document.getElementById("materia");
+                inputMateria.appendChild(localStorage.getItem('materia'))
+                var inputHoraInicio = document.getElementById("horaInicio");
+                inputHoraInicio.appendChild(localStorage.getItem('horaInicio'))
+                var inputHoraFin = document.getElementById("horaFin");
+                inputHoraFin.appendChild(localStorage.getItem('horaFin'));
+            }
+        }
+    </script>
     <script type="text/javascript" src="JS/jquery-3.3.1.min.js"></script>
     <script src="JS/jquery.json.js"></script>
     <script type="text/javascript" src = "JS/generarBoton.js"></script>
@@ -43,7 +68,6 @@ if(isset($_POST['submit'])){
 
         <nav id = "">
             <a href="principal.php">Inicio</a>
-            <a href="Futuro.php">Proyectos</a>
             <a href="Equipo.php">Contacto</a>
             <a href="Roles.php">Roles</a>
             <a href="agregarPermisos.php">Permisos</a>
@@ -75,16 +99,16 @@ if(isset($_POST['submit'])){
             </table>
             <form method="post" action="">
                 <label>Salon:</label>
-                <input type="text" maxlength="3" placeholder="CC3" name="nombreSalon" required>
+                <input type="text" maxlength="3" id= "nombreSalon"placeholder="CC3" name="nombreSalon" required>
                 <label>Materia:</label>
-                <input type="text" maxlength="30" placeholder="Matematicas" name="materia" required>
+                <input type="text" maxlength="30" id="materia" placeholder="Matematicas" name="materia" required>
                 <label>Hora Inicio:</label>
-                <input type="text" maxlength="5" placeholder="00:00" name="horaInicio" required>
+                <input type="text" maxlength="5" id="horaIncio"placeholder="00:00" name="horaInicio" required>
                 <label>Hora Fin:</label>
-                <input type="text" maxlength="5" placeholder="00:00" name="horaFin" required>
+                <input type="text" maxlength="5" id="horaFin"placeholder="00:00" name="horaFin" required>
                 <br>
                 <br>
-                <input type="submit" value="Agregar Clase" name="submit">
+                <input type="submit" value="Agregar Clase" name="submit" onclick="store()">
             </form>
         </aside>
         </div>

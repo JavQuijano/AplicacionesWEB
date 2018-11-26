@@ -24,6 +24,7 @@ class ControladorHeader
         $this->usuario = new Usuario();
         $tablaDatos = $this->usuario->getBy("ClvUsuarios",$idUsuario);
         $this->usuario->asignarDatos($tablaDatos);
+        echo "<meta http-equiv=\"refresh\" content=\"900;url=logout.php\" />";
     }
 
 

@@ -25,7 +25,7 @@ class ControladorRecuperarMat
         }
         if($datosUsuario != null){
             $idUsuario = $datosUsuario['ClvUsuarios'];
-            header("Location: recuperarContraseña.php?idUsuario=".$idUsuario);
+            header("Location: recuperarContrasena.php?idUsuario=".$idUsuario);
         }else{
             echo "<script type = text/javascript>alert('El usuario ingresado no existe')</script>";
         }

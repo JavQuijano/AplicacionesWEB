@@ -277,7 +277,6 @@ class Usuario extends EntidadBase
     }
 
     public function eliminarFavorito($favorito){
-        echo $favorito;
         $nuevoSalon =$this->crearSalon('ClvSalon', $favorito);
         $idSalon = $nuevoSalon->getClvSalon($favorito);
         $query = "DELETE FROM favoritos WHERE Usuarios_idUsuarios ='$this->ClvUsuarios'and Salon_idSalon ='$idSalon';";

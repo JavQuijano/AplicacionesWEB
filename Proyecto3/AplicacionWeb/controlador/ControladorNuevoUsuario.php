@@ -27,7 +27,6 @@ class ControladorNuevoUsuario
 
     public function crearUsuario()
     {
-        echo $_POST['nombreUsuario'];
         if(!$this->existeUsuario($_POST["nombreUsuario"]))
         {
 
@@ -42,18 +41,19 @@ class ControladorNuevoUsuario
                 $this->usuario->asignarDatos($arrayDatos);
                 $this->usuario->asignarRol(2);
                 $this->pregunta = new Pregunta($this->usuario->getClvUsuarios());
+                $this->pregunta->setPregunta($_POST['seleccion']);
+                $this->pregunta->setRespuesta($_POST['respuesta']);
                 $this->pregunta->save();
                 $this->acceso->crearAcceso($this->usuario->getClvUsuarios());
             }
             else
                 {
-                    echo "contraseñas no coinciden";
+                    echo "<script type='text/javascript'>alert('Contraseñas no coinciden')</script>";
                 }
-
         }
         else
             {
-                echo "usuario ya existe";
+                echo "<script type='text/javascript'>alert('Usuario ya Existe')</script>";
             }
     }
     private function existeUsuario($usuario)

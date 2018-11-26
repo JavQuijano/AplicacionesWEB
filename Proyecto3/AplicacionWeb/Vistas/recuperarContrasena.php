@@ -16,9 +16,28 @@
           href="Estilos/login.css"
           type="text/css"
     />
+    <script>
+        function store(){
+            var inputRespuesta = document.getElementById("respuesta");
+            localStorage.setItem("respuesta", inputRespuesta);
+
+        }
+
+        function setStoredValues(){
+            if(localStorage.length > 0) {
+                var inputRespuesta = document.getElementById("respuesta");
+                inputRespuesta.appendChild(JSON.parse(localStorage.getItem('respuesta')));
+
+            }
+        }
+    </script>
 </head>
 <body class ="align">
-
+<script type="text/javascript">
+    $(document).ready( function(){
+        setStoredValues();
+    });
+</script>
 <div class="contenedor" >
     <header>
         <div class="logo">
@@ -41,7 +60,7 @@
                     <div class="form__field">
                         <label><?php echo $controlador->getPregunta()->getPregunta()?></label>
                         <br><br/>
-                        <input type="text" name="respuesta" placeholder="Respuesta Secreta ;)" required>
+                        <input type="text" id ="respuesta" name="respuesta" placeholder="Respuesta Secreta ;)" required>
 
                         <input type="password" name="contra" placeholder="Contraseña nueva" required>
                         <input type="password" name="confcontra" placeholder="Repetir contraseña" required>

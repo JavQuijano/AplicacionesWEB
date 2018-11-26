@@ -43,7 +43,6 @@ $controladorSalones= new ControladorPrincipal($controladorHeader->getUsuario());
 
 			<nav id = "">
 				<a href="principal.php">Inicio</a>
-				<a href="Futuro.php">Proyectos</a>
 				<a href="Equipo.php">Contacto</a>
                 <a id='btnConfig' href=<?php echo $controladorHeader->obtenerDireccion()?>><?php echo $controladorHeader->obtenerTextoBoton()?></a>
                 <form method="post" action="">

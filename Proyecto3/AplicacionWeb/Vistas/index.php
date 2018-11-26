@@ -14,9 +14,27 @@
           href="./Estilos/login.css"
           type="text/css"
     />
+    <script>
+        function store(){
+            var inputUsername = document.getElementById("username");
+            localStorage.setItem("username", inputUsername);
+        }
+
+        function setStoredValues(){
+            if(localStorage.length > 0) {
+                var inputUsername = document.getElementById("username");
+                inputUsername.appendChild(JSON.parse(localStorage.getItem('username')));
+            }
+        }
+    </script>
 </head>
 <body class ="align">
 
+<script type="text/javascript">
+    $(document).ready( function(){
+        setStoredValues();
+    });
+</script>
 
   <div id='stars'></div>
   <div id='stars2'></div>
@@ -42,7 +60,7 @@
                 <div class="login__body">
 
                     <div class="form__field">
-                        <input type="text" name="usuario" placeholder="Escriba su matricula" required>
+                        <input type="text" id="usuario "name="usuario" placeholder="Escriba su matricula" required>
                     </div>
 
                     <div class="form__field">
@@ -52,7 +70,7 @@
                 </div>
 
                 <footer class="login__footer">
-                    <input type="submit" value="Iniciar Sesiòn" name="submit">
+                    <input type="submit" value="Iniciar Sesiòn" name="submit"onclick="store()">
                     <p>
                         <a href="./nuevoUsuario.php">Crear nuevo Usuario</a>
                         <br>

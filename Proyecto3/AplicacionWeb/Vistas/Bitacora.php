@@ -42,7 +42,6 @@ if(isset($_POST['cerrarSesion']))
 
         <nav id = "">
             <a href="principal.php">Inicio</a>
-            <a href="Futuro.php">Proyectos</a>
             <a href="Equipo.php">Contacto</a>
             <a href="Roles.php">Roles</a>
             <a id='btnConfig' href=<?php echo $controladorHeader->obtenerDireccion()?>><?php echo $controladorHeader->obtenerTextoBoton()?></a>

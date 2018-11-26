@@ -14,8 +14,32 @@
           href="Estilos/login.css"
           type="text/css"
     />
+    <script>
+        function store(){
+            var inputNombreUsuario = document.getElementById("nombreUsuario");
+            localStorage.setItem("nombreUsuario", inputNombreUsuario);
+            var inputRespuesta = document.getElementById("respuesta");
+            localStorage.setItem("password", inputRespuesta);
+
+        }
+
+        function setStoredValues(){
+            if(localStorage.length > 0) {
+                var inputNombreUsuario = document.getElementById("nombreUsuario");
+                inputNombreUsuario.appendChild(JSON.parse(localStorage.getItem('nombreUsuario')));
+                var inputRespuesta = document.getElementById("respuesta");
+                inputRespuesta.appendChild(JSON.parse(localStorage.getItem('respuesta')));
+
+            }
+        }
+    </script>
 </head>
 <body class ="align">
+<script type="text/javascript">
+    $(document).ready( function(){
+        setStoredValues();
+    });
+</script>
 
 <div class="contenedor" >
     <header>
@@ -37,13 +61,13 @@
                 <div class="login__body">
 
                     <div class="form__field">
-                        <input type="text" name="mat" placeholder="Matricula" required>
+                        <input type="text" id= "nombreUsuario" name="mat" placeholder="Matricula" required>
                     </div>
 
                 </div>
 
                 <footer class="login__footer">
-                    <input type="submit" value="Siguiente" name="Siguiente">
+                    <input type="submit" value="Siguiente" name="Siguiente" onclick="store()">
                 </footer>
               </form>
 

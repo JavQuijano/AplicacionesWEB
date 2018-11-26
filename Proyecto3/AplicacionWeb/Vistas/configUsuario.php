@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
     <script type="text/javascript" src = "JS/generarBoton.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Estilos/grid.css" type="text/css"/>
-
+    <link rel="stylesheet" href="Estilos/tablaFavoritos.css" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="DataTables/datatables.css">
     <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
 
@@ -44,7 +44,6 @@ if(isset($_POST['submit'])){
 
         <nav id = "">
             <a href="principal.php">Inicio</a>
-            <a href="Futuro.php">Proyectos</a>
             <a href="Equipo.php">Contacto</a>
             <a id='btnConfig' href=<?php echo $controladorHeader->obtenerDireccion()?>><?php echo $controladorHeader->obtenerTextoBoton()?></a>
             <form method="post" action="">
@@ -56,7 +55,7 @@ if(isset($_POST['submit'])){
         <div class="container">
             <aside id = "sidebar">
                 <form method="post">
-                  <table id="tabla" class="display" align="center">
+                  <table id="tabla" class="blueTable" align="center">
                   <thead>
                       <tr>
                           <th>Salones</th>
@@ -260,7 +259,6 @@ if(isset($_POST['submit'])){
     <footer>
         <section class="links">
             <a href="principal.php">Inicio</a>
-            <a href="Futuro.php">Proyectos</a>
             <a href="Equipo.php">Contacto</a>
         </section>
 
