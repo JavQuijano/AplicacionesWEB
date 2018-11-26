@@ -1,44 +1,34 @@
 <?php
-    require_once "../controlador/ControladorRoles.php";
-    require_once "../controlador/ControladorHeader.php";
-    @session_start();
-    $idUsuario = $_SESSION['idUsuario'];
-    $controladorHeader = new ControladorHeader($idUsuario);
-    $controladorHeader->escribirBoton();
-
-$controladorRoles = new ControladorRoles();
-    if(isset($_POST['cerrarSesion']))
-    {
-        $controladorHeader->cerrarSesion();
-    }
-if(isset($_POST['submit']))
+require_once "../controlador/ControladorHeader.php";
+@session_start();
+$idUsuario = $_SESSION['idUsuario'];
+$controladorHeader = new ControladorHeader($idUsuario);
+$controladorHeader->escribirBoton();
+if(isset($_POST['cerrarSesion']))
 {
-    $controladorRoles->editarRol();
+    $controladorHeader->cerrarSesion();
 }
 ?>
 <html>
 <head>
-
     <script type="text/javascript" src="JS/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="JS/desplegarBitacora.js"</head>
     <script type="text/javascript" src = "JS/generarBoton.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Estilos/grid.css" type="text/css"/>
-
     <link rel="stylesheet" type="text/css" href="DataTables/datatables.css">
-
-    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css.css">
 
     <script type="text/javascript" charset="utf8" src="DataTables/datatables.js"></script>
     <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 
-
-
 </head>
 <body>
-
   <script type="text/javascript">
+
     $(document).ready( function () {
-    $('#tabla').DataTable();
+    $('#tabla').DataTable({
+    responsive: true});
 } );
   </script>
 
@@ -54,6 +44,7 @@ if(isset($_POST['submit']))
             <a href="principal.php">Inicio</a>
             <a href="Futuro.php">Proyectos</a>
             <a href="Equipo.php">Contacto</a>
+            <a href="Roles.php">Roles</a>
             <a id='btnConfig' href=<?php echo $controladorHeader->obtenerDireccion()?>><?php echo $controladorHeader->obtenerTextoBoton()?></a>
             <form method="post" action="">
                 <input type="submit" name="cerrarSesion" value="CerrarSesion" id="botonLogin">
@@ -62,28 +53,23 @@ if(isset($_POST['submit']))
     </header>
     <div class = "contenedor-centro" id = centro>
         <div class="container">
-            <aside id = "sidebar">
-                <form action ="" method="post">
-                  <table id="tabla" class="display">
+        <aside id = "sidebar">
+                <table id="tabla" class="display">
                   <thead>
                       <tr>
-                          <th>Usuario</th>
-                          <th>Admin</th>
-                          <th>Usuario</th>
+                          <th style="width:20%;">Usuario</th>
+                          <th style="width:20%;">Tarea</th>
+                          <th style="width:10%;">IP</th>
+                          <th style="width:10%;">Fecha</th>
+                          <th style="width:20%;">Modulo</th>
+                          <th style="width:40%;">Detales</th>
                       </tr>
                   </thead>
-                  <tbody>
-
-
-                      <?php $controladorRoles->pintarLineas();?>
-
-
+                  <tbody id="tablaBitacora">
+                      <!--generado por jquery-->
                   </tbody>
-              </table>
-
-              <input type="submit" name="submit"  value="Cambiar Roles">
-                </form>
-            </aside>
+            </table>
+        </aside>
         </div>
     </div>
     <footer>
@@ -100,8 +86,6 @@ if(isset($_POST['submit']))
     </footer>
     </div>
 
+</div>
 </body>
 </html>
-<?php
-
-?>

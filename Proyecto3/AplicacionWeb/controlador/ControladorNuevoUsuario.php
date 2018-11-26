@@ -8,10 +8,12 @@
 
 require "../modelo/Usuario.php";
 require "../modelo/Pregunta.php";
+require "../modelo/Acceso.php";
 class ControladorNuevoUsuario
 {
     private $usuario;
     private $pregunta;
+    private $acceso;
 
 
     /**
@@ -20,6 +22,7 @@ class ControladorNuevoUsuario
     public function __construct()
     {
         $this->usuario = new Usuario();
+        $this->acceso = new Acceso();
     }
 
     public function crearUsuario()
@@ -40,6 +43,7 @@ class ControladorNuevoUsuario
                 $this->usuario->asignarRol(2);
                 $this->pregunta = new Pregunta($this->usuario->getClvUsuarios());
                 $this->pregunta->save();
+                $this->acceso->crearAcceso($this->usuario->getClvUsuarios());
             }
             else
                 {

@@ -5,7 +5,7 @@
  * Date: 11/21/2018
  * Time: 9:39 PM
  */
-
+require_once "../modelo/EntidadBase.php";
 class Bitacora extends EntidadBase
 {
     private $tarea;
@@ -21,7 +21,7 @@ class Bitacora extends EntidadBase
     public function __construct()
     {
         $table = "Bitacora";
-        parent:: __contruct($table);
+        parent:: __construct($table);
     }
 
     /**
@@ -131,5 +131,25 @@ class Bitacora extends EntidadBase
             ". $this->Usuarios_idUsuarios."');";
         $save = $this->db()->query($query);
         return $save;
+    }
+
+    public function getBitacora(){
+        try {
+            $query = "SELECT tarea, ip, fechahora, detalles, nombreUsuario, nomModulo
+                      from (bitacora join usuarios join Modulo 
+                      on ClvUsuarios = Usuarios_idUsuarios 
+                      and Bitacora.idModulo=modulo.idmodulo);";
+            $resultSet = $this->runQuery($query);
+            return $resultSet->fetchAll(PDO::FETCH_ASSOC);
+        }catch(Exception $e){
+            $msg = false;
+            return $msg;
+        }
+    }
+
+    public function agregarEntrada($idUsuario, $idModulo, $detalles, $tarea){
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $query = "insert into bitacora values('$tarea', '$ip', now(), '$detalles', '$idModulo', '$idUsuario');";
+        $run = $this->runQuery($query);
     }
 }

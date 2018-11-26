@@ -6,11 +6,13 @@
  * Time: 11:27 PM
  */
 require "../modelo/Usuario.php";
+require "../modelo/Acceso.php";
 
 session_start();
 class ControladorLogin
 {
     private $usuario;
+    private $acceso;
     private $contrasena;
 
     /**
@@ -18,6 +20,7 @@ class ControladorLogin
      */
     public function __construct()
     {
+        $this->acceso = new Acceso();
         $this->usuario = new Usuario();
     }
     public function verificarUsuario()
@@ -29,16 +32,27 @@ class ControladorLogin
         $datosUsuario= $this->usuario->getBy("nombreUsuario",$nombre);
         if($datosUsuario!=null){
             $this->usuario->asignarDatos($datosUsuario);
-            $this->contrasena = $_POST['contrasena'];
-            if(strcasecmp($this->usuario->getNombreUsuario(),$nombre) == 0){
-                $correcta = $this->compararContra();
-                if($correcta){
-                    echo "SI";
-                    $idUsuario = $this->usuario->getClvUsuarios();
-                    $_SESSION['idUsuario'] = $idUsuario;
-                    header("Location: principal.php");
-                }else{
-                    echo "<script type = text/javascript>alert('Contraseña Incorrecta')</script>";
+            if(strcmp($this->usuario->getEstado(), '1') == 0) {
+                $this->acceso->asignarIntentos($this->usuario->getClvUsuarios());
+                if ($this->acceso->getIntentos() < 3) {
+                    $this->contrasena = $_POST['contrasena'];
+                    if (strcasecmp($this->usuario->getNombreUsuario(), $nombre) == 0) {
+                        $correcta = $this->compararContra();
+                        if ($correcta) {
+                            echo "SI";
+                            $idUsuario = $this->usuario->getClvUsuarios();
+                            $_SESSION['idUsuario'] = $idUsuario;
+                            $this->acceso->reiniciarIntentos();
+                            header("Location: principal.php");
+                        } else {
+                            $idUsuario = $this->usuario->getClvUsuarios();
+                            $this->acceso->intentoFallido();
+                            echo "<script type = text/javascript>alert('Contraseña Incorrecta')</script>";
+                        }
+                    }
+                } else {
+                    $this->usuario->setEstado('0');
+                    echo "<script type = text/javascript>alert('Usuario Bloqueado por Multiples intentos fallidos')</script>";
                 }
             }
         }else{

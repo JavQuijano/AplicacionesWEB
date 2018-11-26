@@ -316,7 +316,58 @@ class Usuario extends EntidadBase
         $this->runQuery($query);
 
     }
+    public function tablaUsuarios()
+    {
+        $query = "SELECT * FROM usuarios;";
 
+        $PDO = $this->runQuery($query);
+        return $PDO->fetchAll();
+    }
+    public function hacerUser($clvUser)
+    {
+        try {
+            $query = "INSERT INTO usuarios_has_roles VALUES ('$clvUser',2);";
+            $this->runQuery($query);
+        }
+        catch(Exception $e)
+        {
+            echo  $e->getMessage();
+        }
+
+    }
+    public function hacerAdmin($clvUser)
+    {
+        try{
+            $query = "INSERT INTO usuarios_has_roles VALUES ('$clvUser',1);";
+            $this->runQuery($query);
+        }
+        catch(Exception $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+    public function quitarUser($clvUser)
+    {
+        try {
+            $query = "DELETE FROM usuarios_has_roles WHERE Usuarios_idUsuarios ='$clvUser' AND Roles_idRol = ' 2 ';";
+            $this->runQuery($query);
+        }
+        catch(Exception $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+    public function quitarAdmin($clvUser)
+    {
+        try{
+            $query = "DELETE FROM usuarios_has_roles WHERE Usuarios_idUsuarios ='$clvUser' AND  Roles_idRol = ' 1 ';";
+            $this->runQuery($query);
+        }
+        catch(Exception $e)
+        {
+            echo $e->getMessage();
+        }
+    }
     public function esAdmin($clvUsuario)
     {
         $esAdmin = false;
@@ -326,7 +377,7 @@ class Usuario extends EntidadBase
         $tabla = $pdo->fetchAll();
         foreach ($tabla as $rol)
         {
-            if($rol['Roles_idRol']==2)
+            if(strcmp($rol['Roles_idRol'],"1")==0)
             {
                 $esAdmin= true;
                 break;
@@ -344,20 +395,16 @@ class Usuario extends EntidadBase
         $tabla = $pdo->fetchAll();
         foreach ($tabla as $rol)
         {
-            if($rol['Roles_idRol']==1)
+
+            if(strcmp($rol['Roles_idRol'],"2")==0)
             {
+
                 $esAdmin= true;
                 break;
             }
         }
         return $esAdmin;
     }
-    public function tablaUsuarios()
-    {
-        $query = "SELECT * FROM usuarios;";
 
-        $PDO = $this->runQuery($query);
-        return $PDO->fetchAll();
-    }
 
 }

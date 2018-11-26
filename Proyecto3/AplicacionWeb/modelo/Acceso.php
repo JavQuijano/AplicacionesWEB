@@ -5,10 +5,10 @@
  * Date: 11/21/2018
  * Time: 4:46 PM
  */
-
+require_once "../modelo/EntidadBase.php";
 class Acceso extends EntidadBase
 {
-    private $idAcceso;
+    private $idUsuario;
     private $ultimaConexion;
     private $intentos;
 
@@ -17,6 +17,7 @@ class Acceso extends EntidadBase
      */
     public function __construct()
     {
+        date_default_timezone_set('America/Mexico_City');
         $table = "Acceso";
         parent::__construct($table);
     }
@@ -79,6 +80,41 @@ class Acceso extends EntidadBase
     public function setIntentos($intentos)
     {
         $this->intentos = $intentos;
+    }
+
+    public function asignarIntentos($idUsuario){
+        $this->idUsuario = $idUsuario;
+        $query = "Select intentos from acceso where Usuarios_ClvUsuarios = '$idUsuario';";
+        $run = $this->runQuery($query);
+        $resultSet = $run->fetch(PDO::FETCH_ASSOC);
+        $int = (int)$resultSet['intentos'];
+        $this->intentos = $int;
+    }
+
+    public function intentoFallido(){
+        $this->intentos += 1;
+        if($this->intentos < 3) {
+            $query = "update acceso set intentos = '$this->intentos' where Usuarios_ClvUsuarios = '$this->idUsuario';";
+            $run = $this->runQuery($query);
+        }
+    }
+
+    public function reiniciarIntentos(){
+        if($this->intentos != 0) {
+            $query = "update acceso set intentos = 0 where Usuarios_ClvUsuarios = '$this->idUsuario';";
+            $run = $this->runQuery($query);
+        }
+        $this->actualizarUltimaConn();
+    }
+
+    public function crearAcceso($idUsuario){
+        $query="insert into acceso values(now(), 0, '$idUsuario')";
+        $run = $this->runQuery($query);
+    }
+
+    public function actualizarUltimaconn(){
+        $query = "update acceso set ultimaconeccion = now() where Usuarios_ClvUsuarios = '$this->idUsuario';";
+        $run = $this->runQuery($query);
     }
 
 }

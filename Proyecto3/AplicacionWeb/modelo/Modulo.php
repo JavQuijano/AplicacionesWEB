@@ -5,17 +5,22 @@
  * Date: 11/21/2018
  * Time: 9:46 PM
  */
-
-class Modulo
+require_once "../controlador/ControladorBitacora.php";
+require_once "../modelo/EntidadBase.php";
+class Modulo extends EntidadBase
 {
-    private $idModuloFavoritos;
-    private $Permisos_idPermisos;
+    private $idModulo;
+    private $nomModulo;
+    private $bitacora;
 
     /**
      * Modulo constructor.
      */
-    public function __construct()
+    public function __construct($nombreModulo)
     {
+        $this->bitacora = new Bitacora();
+        $this->nomModulo = $nombreModulo;
+        $this->idModulo = $this->idModuloBD();
         $table = "Modulo";
         parent::__construct($table);
     }
@@ -29,36 +34,15 @@ class Modulo
         return $save;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getIdModuloFavoritos()
-    {
-        return $this->idModuloFavoritos;
+    public function insertarEnBitacora($tarea, $detalles, $idUsuario){
+        $this->bitacora->agregarEntrada($idUsuario,$this->idModulo, $detalles, $tarea);
     }
 
-    /**
-     * @param mixed $idModuloFavoritos
-     */
-    public function setIdModuloFavoritos($idModuloFavoritos)
-    {
-        $this->idModuloFavoritos = $idModuloFavoritos;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPermisosIdPermisos()
-    {
-        return $this->Permisos_idPermisos;
-    }
-
-    /**
-     * @param mixed $Permisos_idPermisos
-     */
-    public function setPermisosIdPermisos($Permisos_idPermisos)
-    {
-        $this->Permisos_idPermisos = $Permisos_idPermisos;
+    public function idModuloBD(){
+        $query = "select idModulo from Modulo where nomModulo = '$this->nomModulo';";
+        $run = $this->runQuery($query);
+        $resultset = $run->fetch();
+        return $resultset['idModulo'];
     }
 
 }

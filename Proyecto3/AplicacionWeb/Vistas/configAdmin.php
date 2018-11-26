@@ -16,20 +16,16 @@ if(isset($_POST['submit'])){
 ?>
 <html>
 <head>
-
     <script type="text/javascript" src="JS/jquery-3.3.1.min.js"></script>
     <script src="JS/jquery.json.js"></script>
     <script type="text/javascript" src = "JS/generarBoton.js"></script>
     <script type="text/javascript" src = "JS/desplegartabla.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Estilos/grid.css" type="text/css"/>
-
     <link rel="stylesheet" type="text/css" href="DataTables/datatables.css">
     <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
-
     <script type="text/javascript" charset="utf8" src="DataTables/datatables.js"></script>
     <script type="text/javascript" src="DataTables/datatables.min.js"></script>
-
 </head>
 <body>
   <script type="text/javascript">
@@ -50,6 +46,8 @@ if(isset($_POST['submit'])){
             <a href="Futuro.php">Proyectos</a>
             <a href="Equipo.php">Contacto</a>
             <a href="Roles.php">Roles</a>
+            <a href="Bitacora.php">Bitacora</a>
+            <a href="Sistemas.php">Sistema</a>
             <a id='btnConfig' href=<?php echo $controladorHeader->obtenerDireccion()?>><?php echo $controladorHeader->obtenerTextoBoton()?></a>
             <form method="post" action="">
                 <input type="submit" name="cerrarSesion" value="CerrarSesion" id="botonLogin">
