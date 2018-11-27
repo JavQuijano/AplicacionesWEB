@@ -5,6 +5,7 @@
  * Date: 11/26/18
  * Time: 20:29
  */
+@session_start();
 require_once "../modelo/Usuario.php";
 require_once "../modelo/Pregunta.php";
 require_once "../modelo/Modulo.php";
@@ -21,7 +22,7 @@ class ControladorUsuarios
 
     public function editarUsuario($data){
         $msg = $this->usuario->updateInfo($data);
-        //$this->modulo->insertarEnBitacora('Editar Usuario', 'Actualizacion info usuario:', $this->usuario->getNombreUsuario());
+        $this->modulo->insertarEnBitacora('Editar Usuario', 'Actualizacion info usuario:'.$data['ClvUsuarios'], $_SESSION['idUsuario']);
         return $msg;
     }
 

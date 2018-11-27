@@ -1,0 +1,1 @@
+insert into Modulo values (6, 1, 'Usuarios')
