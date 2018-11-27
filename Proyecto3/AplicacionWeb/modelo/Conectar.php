@@ -34,7 +34,7 @@ class Conectar
 
         $server_name = "localhost";
         $username = "root";
-        $password = "root";
+        $password = "";
 
         $con= new PDO("mysql:host=$server_name;dbname=web_model", $username, $password);
         try
